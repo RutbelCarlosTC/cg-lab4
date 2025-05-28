@@ -5,7 +5,7 @@ using UnityEngine;
 public class CamaraStatic : MonoBehaviour
 {
     public List<Camera> cameras;
-    public int index;
+    public int index = 0;
     public Camera Camera1;
 
     // Start is called before the first frame update
@@ -21,9 +21,9 @@ public class CamaraStatic : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.V))
         {
-            index = index < cameras.Count ? index + 1 : 0;
+            index = (index + 1) % cameras.Count;
 
-            for(int i = 0;i < cameras.Count; i++)
+            for (int i = 0;i < cameras.Count; i++)
             {
                 cameras[i].gameObject.SetActive(i == index);
             }

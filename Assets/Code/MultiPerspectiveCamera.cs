@@ -118,23 +118,6 @@ public class MultiPerspectiveCamera : MonoBehaviour
         nearPlaneSize = new Vector2(width, height);
     }
 
-    private Vector3[] GetCameraCollisionPoints(Vector3 direction)
-    {
-        Vector3 position = follow.position;
-        Vector3 center = position + direction * (camera.nearClipPlane + 0.4f);
-
-        Vector3 right = transform.right * nearPlaneSize.x;
-        Vector3 up = transform.up * nearPlaneSize.y;
-
-        return new Vector3[]
-        {
-            center - right + up,
-            center + right + up,
-            center - right - up,
-            center + right - up
-        };
-    }
-
     void Update()
     {
         float hor = Input.GetAxis("Mouse X");
